@@ -142,11 +142,8 @@ def choose_wifi(dialog_title='TiLDA'):
             if ap['security'] == None:
                 ap['security'] = 'wifi'
 
-            key = dialogs.prompt_text(
-                "Enter %s key" % ap['security'],
-                width = 310,
-                height = 220
-            )
+            key = dialogs.prompt_text("Enter %s key" % ap['security'])
+
         with open("wifi.json", "wt") as file:
             if key:
                 conn_details = {"ssid": ap['ssid'], "pw": key}
